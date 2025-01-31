@@ -5,6 +5,8 @@ import 'package:my_messenger/firebase/firebase_auth/firebase_service.dart';
 import 'package:my_messenger/firebase/firebase_options.dart';
 import 'package:my_messenger/pages/chats_page/chats_page.dart';
 import 'package:my_messenger/pages/login_page/login_page.dart';
+import 'package:my_messenger/pages/register_page/register_page.dart';
+import 'package:my_messenger/pages/register_page/verify_email.dart';
 import 'package:my_messenger/rec/theme.dart';
 import 'package:my_messenger/utils/route_name.dart';
 import 'package:my_messenger/utils/routes.dart';
@@ -19,22 +21,15 @@ void main() async {
 }
 
 class MyMessenger extends StatelessWidget {
-  const MyMessenger({super.key});
-
-  void mainRouter() {
-    if (FirebaseService().currentUser == null) {
-    route(LoginPage);
-    } else {
-      
-    }
-  }
+  MyMessenger({super.key});
+  final firebaseService = FirebaseService();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: ,
+      initialRoute: route(RegisterPage),
       routes: generateRoutes(),
     );
   }

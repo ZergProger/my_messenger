@@ -61,6 +61,22 @@ class _RegisterPageState extends State<RegisterPage> {
                 enterTextHelp: AppTexts.repeatPassword,
                 controller: _controllerRepeatPassword,
               ),
+              ElevatedButton(
+                  onPressed: () =>
+                      FirebaseService().signInWithGoogle(),
+                  child: Row(
+                    children: [
+                      ImageIcon(
+                        AssetImage(
+                            'assets/icons/google_icon.png'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 40, right: 40),
+                        child: Text('Gogle'),
+                      ),
+                    ],
+                  )),
               ElevatedButtonSubmit(
                   controllerEmail: _controllerEmail,
                   controllerPassword: _controllerPassword,
@@ -68,9 +84,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       _controllerRepeatPassword,
                   isShowErrorRepeatPassword:
                       isShowErrorRepeatPassword),
-              if (isShowErrorRepeatPassword == false)
-                Text(
-                    'You have entered the password incorrectly'),
             ],
           ),
         ));

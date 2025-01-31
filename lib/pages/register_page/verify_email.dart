@@ -37,22 +37,18 @@ class _VerifyEmailState extends State<VerifyEmail> {
                 'Send email verification',
               ),
             ),
-            TextButton(
-              onPressed: () async {
-                if (user != null) {
-                  await user!.reload();
-                  user = FirebaseService().currentUser;
-                  if (user!.emailVerified) {
+            ElevatedButton(
+                onPressed: () async {
+                  user!.reload();
+                  if (user!.emailVerified == true) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomePage(),
                         ));
                   }
-                }
-              },
-              child: Text('check'),
-            ),
+                },
+                child: Text('check'))
           ],
         ),
       ),
