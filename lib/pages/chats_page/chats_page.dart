@@ -15,20 +15,20 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'My messenger',
-          style: AppTextStyle.appBarText,
-        ),
-        leading: IconButton(
-            onPressed: () {
-              setState(() {});
-              Scaffold.of(context).openDrawer();
-            },
-            icon: Icon(
-              Icons.menu,
-              color: Colors.white,
-            )),
-      ),
+          title: Text(
+            'My messenger',
+            style: AppTextStyle.appBarText,
+          ),
+          leading: Builder(
+            builder: (context) => IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                )),
+          )),
       drawer: DriverMenuMessenger(),
       body: Column(
         children: [],

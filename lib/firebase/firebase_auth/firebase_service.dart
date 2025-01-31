@@ -9,7 +9,20 @@ class FirebaseService {
   final auth = FirebaseAuth.instance;
   final currentUser = FirebaseAuth.instance.currentUser;
 
-  onLogin() async {}
+  onLogin(String email, String password) async {
+    try {
+      final credential =
+          await auth.signInWithEmailAndPassword(
+              email: email, password: password);
+      print(credential);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
 
   onRegister(String email, String password) async {
     try {
@@ -34,5 +47,7 @@ class FirebaseService {
     await auth.signOut();
   }
 
-  verifyEmail() async {}
+  onVerifyEmail() async {
+    currentUser?.sendEmailVerification();
+  }
 }

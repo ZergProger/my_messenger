@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_messenger/firebase/firebase_auth/firebase_service.dart';
+import 'package:my_messenger/pages/register_page/verify_email.dart';
 import 'package:my_messenger/rec/button_style.dart';
 import 'package:my_messenger/rec/text_style.dart';
 import 'package:my_messenger/rec/texts.dart';
@@ -22,8 +23,15 @@ class ElevatedButtonSubmit extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        if (controllerRepeatPassword.text == controllerPassword.text) {
-          firebaseService.onRegister(controllerEmail.text, controllerPassword.text);
+        if (controllerRepeatPassword.text ==
+            controllerPassword.text) {
+          firebaseService.onRegister(controllerEmail.text,
+              controllerPassword.text);
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => VerifyEmail(),
+              ));
         } else {}
       },
       style: AppButtonStyle.submitButtonStyle,

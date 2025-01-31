@@ -7,13 +7,19 @@ import 'package:my_messenger/rec/texts.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
-  final TextEditingController _controllerEmail = TextEditingController();
-  final TextEditingController _controllerPassword = TextEditingController();
+  final TextEditingController _controllerEmail =
+      TextEditingController();
+  final TextEditingController _controllerPassword =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+        ),
         title: Text(
           AppTexts.loginText,
           style: AppTextStyle.appBarText,
@@ -31,10 +37,12 @@ class LoginPage extends StatelessWidget {
                   TextFiendCustom(
                     enterTextHelp: AppTexts.enterEmail,
                     iconFiend: Icons.email,
+                    controller: _controllerEmail,
                   ),
                   TextFiendCustom(
                     enterTextHelp: AppTexts.enterPassword,
                     iconFiend: Icons.password,
+                    controller: _controllerPassword,
                   ),
                 ],
               ),

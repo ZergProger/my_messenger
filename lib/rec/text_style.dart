@@ -13,4 +13,9 @@ class AppTextStyle {
     fontSize: 30,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle verifyEmail = TextStyle(
+    color: Colors.white,
+    fontSize: 100,
+    fontWeight: FontWeight.w600,
+  );
 }

@@ -16,9 +16,12 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController _controllerRepeatPassword = TextEditingController();
-  final TextEditingController _controllerEmail = TextEditingController();
-  final TextEditingController _controllerPassword = TextEditingController();
+  final TextEditingController _controllerRepeatPassword =
+      TextEditingController();
+  final TextEditingController _controllerEmail =
+      TextEditingController();
+  final TextEditingController _controllerPassword =
+      TextEditingController();
   bool isShowErrorRepeatPassword = true;
 
   @override
@@ -61,9 +64,13 @@ class _RegisterPageState extends State<RegisterPage> {
               ElevatedButtonSubmit(
                   controllerEmail: _controllerEmail,
                   controllerPassword: _controllerPassword,
-                  controllerRepeatPassword: _controllerRepeatPassword,
-                  isShowErrorRepeatPassword: isShowErrorRepeatPassword),
-              if (isShowErrorRepeatPassword == false) Text('You have entered the password incorrectly'),
+                  controllerRepeatPassword:
+                      _controllerRepeatPassword,
+                  isShowErrorRepeatPassword:
+                      isShowErrorRepeatPassword),
+              if (isShowErrorRepeatPassword == false)
+                Text(
+                    'You have entered the password incorrectly'),
             ],
           ),
         ));
@@ -71,8 +78,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   void dispose() {
+    super.dispose();
     _controllerEmail.dispose();
     _controllerPassword.dispose();
-    super.dispose();
+    _controllerRepeatPassword.dispose();
   }
 }
