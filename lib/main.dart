@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:my_messenger/firebase/firebase_auth/firebase_service.dart';
-import 'package:my_messenger/firebase/firebase_options.dart';
+import 'package:my_messenger/firebase_options.dart';
 import 'package:my_messenger/pages/chats_page/chats_page.dart';
 import 'package:my_messenger/pages/login_page/login_page.dart';
 import 'package:my_messenger/pages/register_page/register_page.dart';
