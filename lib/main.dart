@@ -29,7 +29,13 @@ class MyMessenger extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: route(RegisterPage),
+      initialRoute: route(FirebaseService().currentUser ==
+              null
+          ? LoginPage
+          : FirebaseService().currentUser!.emailVerified ==
+                  false
+              ? VerifyEmail
+              : HomePage),
       routes: generateRoutes(),
     );
   }
