@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class TextFiendCustom extends StatelessWidget {
-  TextFiendCustom({super.key, this.iconFiend, required this.enterTextHelp, this.controller});
+  const TextFiendCustom(
+      {super.key,
+      this.iconFiend,
+      required this.enterTextHelp,
+      this.controller});
 
   final IconData? iconFiend;
   final String enterTextHelp;
-  TextEditingController? controller;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {

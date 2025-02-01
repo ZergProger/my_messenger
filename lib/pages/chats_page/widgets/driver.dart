@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_messenger/pages/account_page/account_page.dart';
 import 'package:my_messenger/pages/chats_page/widgets/elevated_button_account.dart';
 import 'package:my_messenger/pages/chats_page/widgets/elevation_button.dart';
 import 'package:my_messenger/pages/setting_page/setting_page.dart';

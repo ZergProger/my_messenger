@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_messenger/firebase/firebase_auth/firebase_service.dart';
 import 'package:my_messenger/pages/register_page/verify_email.dart';
@@ -16,7 +15,7 @@ class ElevatedButtonSubmit extends StatelessWidget {
   final TextEditingController controllerPassword;
   final TextEditingController controllerRepeatPassword;
   final TextEditingController controllerEmail;
-  bool isShowErrorRepeatPassword;
+  final bool isShowErrorRepeatPassword;
   final FirebaseService firebaseService = FirebaseService();
 
   @override

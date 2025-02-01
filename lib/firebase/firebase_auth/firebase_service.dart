@@ -12,35 +12,23 @@ class FirebaseService {
 
   onLogin(String email, String password) async {
     try {
-      final credential =
-          await auth.signInWithEmailAndPassword(
-              email: email, password: password);
-      print(credential);
+      await auth.signInWithEmailAndPassword(
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      }
+      } else if (e.code == 'wrong-password') {}
     }
   }
 
   onRegister(String email, String password) async {
     try {
-      final credential =
-          await auth.createUserWithEmailAndPassword(
+      await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      print(credential);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-      }
-    } catch (e) {
-      print(e);
+      } else if (e.code == 'email-already-in-use') {}
     }
   }
 
@@ -51,10 +39,7 @@ class FirebaseService {
   onVerifyEmail() async {
     try {
       await currentUser?.sendEmailVerification();
-      print('Письмо с верификацией отправлено');
-    } catch (e) {
-      print('Ошибка при отправке письма: $e');
-    }
+    } catch (e) {}
   }
 
   signInWithGoogle() async {

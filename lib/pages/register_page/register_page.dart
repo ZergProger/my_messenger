@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_messenger/firebase/firebase_auth/firebase_service.dart';
-import 'package:my_messenger/pages/login_page/login_page.dart';
 import 'package:my_messenger/pages/login_page/widgets/text_fiend.dart';
 import 'package:my_messenger/pages/register_page/widgets/elevated_button.dart';
 import 'package:my_messenger/rec/button_style.dart';
@@ -12,10 +10,10 @@ class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  RegisterPageState createState() => RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class RegisterPageState extends State<RegisterPage> {
   final TextEditingController _controllerRepeatPassword =
       TextEditingController();
   final TextEditingController _controllerEmail =
@@ -62,19 +60,19 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: _controllerRepeatPassword,
               ),
               ElevatedButton(
+                  style: AppButtonStyle.googleButtonStyle,
                   onPressed: () =>
                       FirebaseService().signInWithGoogle(),
                   child: Row(
                     children: [
-                      ImageIcon(
-                        AssetImage(
-                            'assets/icons/google_icon.png'),
+                      Spacer(flex: 1),
+                      Image.asset(
+                        'assets/icons/google_icon.png',
+                        height: 30,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 40, right: 40),
-                        child: Text('Gogle'),
-                      ),
+                      Text('Google',
+                          style: AppTextStyle.submit),
+                      Spacer(flex: 1)
                     ],
                   )),
               ElevatedButtonSubmit(
